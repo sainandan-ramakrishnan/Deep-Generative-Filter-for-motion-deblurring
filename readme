@@ -1,0 +1,24 @@
+Deep Generative filter for motion deblurring ( ICCV 2017 )
+
+--Sainandan Ramakrishnan, Shubham Pachori, Aalok Gangopadhyay, Shanmuganathan Raman
+
+The basic constructs of this code have been derived from 'pix2pix' - CVPR 2016. 
+
+For testing our code on the pre-trained model ( the link will be provided ),
+
+1. Open terminal in the main 'deep generative filter' folder
+2. Enter "DATA_ROOT=/path/to/data/ name=deshake phase=test which_direction=BtoA th test.lua"
+3. Results will be stored in the /resuts folder with the corresponding name of the model used.
+4. A sample dataset which is a subset of the places dataset is provided for quick testing. Images should be concatenated in that format. ( Clean image on the left, with blurred image on the right )
+
+
+For training our code on either your custom dataset or the sample training set provided.
+Pre-training steps : Go to per_loss/models folder, run the script and download the VGG 16 ImageNet pre-trained model, required for calculating perceptual loss.
+
+1. Enter "DATA_ROOT=/path/to/data/ which_direction=BtoA name=deshake th train.lua "
+2. Intermediate models during the course of training will be stored in the 'checkpoints' folder.
+3. After training, move the latest model to the model folder during inference time.
+
+The code although deigned for motion deblurring, can actually addresss any image restoration or image-to-image computational photography problem, given sufficient training data. The architecture is tried and tested to be general purpose.
+
+For queries, please contact sainandancv@gatech.edu
